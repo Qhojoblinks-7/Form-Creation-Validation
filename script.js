@@ -38,9 +38,9 @@ const form = document.addEventListener('DOMContentLoaded', ()=>{
             try{
 
                 //variables for awaiting inputs
-            const isUserNameValid = await ValidateUsername(userName.trim());
-            const isEmailValid = await validateEmail(email.trim());
-            const isPasswordValid = await validatePassword(password.trim());
+            const isUserNameValid = await ValidateUsername(userName);
+            const isEmailValid = await validateEmail(email);
+            const isPasswordValid = await validatePassword(password);
                 
                 //validate user name
             if (!isUserNameValid){
