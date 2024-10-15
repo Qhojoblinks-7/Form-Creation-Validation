@@ -20,21 +20,21 @@ const form = document.addEventListener('DOMContentLoaded', ()=>{
                 //validate user name
             if (!isUserNameValid){
                 message.push('Invalid username! Username must be 6-15 characters long, alphanumeric, and start with a letter.');
-                return false;
+                isValid = false;
             }
             
             
             //validate email
             if (!isEmailValid){
                 message.push('Invalid email address! Please enter a valid email format.');
-                return false;
+                isValid = false;
             }
 
             
             //validate password
             if (!isPasswordValid) {
                 messages.push('Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.');
-                return false;
+                isValid = false;
             }
 
             }catch(error){
