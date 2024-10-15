@@ -38,7 +38,10 @@ const form = document.addEventListener('DOMContentLoaded', ()=>{
             }
 
             }catch(error){
-                document.getElementById('form-feedback').textContent = "form not valid!";
+                feedbackDiv.textContent = "An error occurred during validation.";
+                feedbackDiv.style.color = '#dc3545'; // Red color for errors
+                feedbackDiv.style.display = 'block';
+                return;
             }
             
 
@@ -49,7 +52,7 @@ const form = document.addEventListener('DOMContentLoaded', ()=>{
                 feedbackDiv.textContent="Registration successful";
                 feedbackDiv.style.color = '#28a745';
             }else{
-                feedbackDiv.innerHTML = message.join('br');
+                feedbackDiv.innerHTML = message.join('<br>');
                 feedbackDiv.style.color = '#dc3545';
             }
 
