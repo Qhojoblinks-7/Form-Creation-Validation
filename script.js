@@ -16,38 +16,30 @@ const form = document.addEventListener('DOMContentLoaded', ()=>{
             let isValid = true;
             let message = [];
 
-            // Check username length (6-15 characters)
-            if (userName.length < 6 || userName.length > 15) {
-                message.push("Username must be between 6 and 15 characters.");
-                isValid = false;
-            }
-            if (password.length < 8) {
-                message.push('Password must be at least 8 characters long.');
-            }
+            
+            
             if (email.length === 0) {
                 message.push('Email cannot be empty.');
             }
     
             // Early exit if there are messages
-            if (message.length > 0) {
-                feedbackDiv.style.display = 'block';
-                feedbackDiv.innerHTML = messages.join('<br>'); // Use '<br>' for line breaks
-                feedbackDiv.style.color = '#dc3545';
-                return false; // Stop further execution
-            }
-
+            
             try{
                 //validate user name
             if (!isUserNameValid){
                 message.push('Invalid username! Username must be 6-15 characters long, alphanumeric, and start with a letter.');
                 isValid = false;
-            }
-            
-            
+            }else if (userName.length < 6 || userName.length > 15) {
+                 // Check username length (6-15 characters)
+                    message.push("Username must be between 6 and 15 characters.");
+                    isValid = false;
+}
             //validate email
             if (!isEmailValid){
                 message.push('Invalid email address! Please enter a valid email format.');
                 isValid = false;
+            }else if (password.length < 8) {
+                message.push('Password must be at least 8 characters long.');
             }
 
             
@@ -55,7 +47,14 @@ const form = document.addEventListener('DOMContentLoaded', ()=>{
             if (!isPasswordValid) {
                 message.push('Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.');
                 isValid = false;
+                
+            }else if (message.length > 0) {
+                feedbackDiv.style.display = 'block';
+                feedbackDiv.innerHTML = messages.join('<br>'); // Use '<br>' for line breaks
+                feedbackDiv.style.color = '#dc3545';
+                return false; // Stop further execution
             }
+
 
             }catch(error){
                 feedbackDiv.textContent = "An error occurred during validation.";
