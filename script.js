@@ -29,17 +29,17 @@ const form = document.addEventListener('DOMContentLoaded', ()=>{
             
             //validate password
             if (!isPasswordValid) {
-                document.getElementById('passwordMessage').textContent = "Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.";
+                document.getElementById('form-feedback').textContent = "Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.";
                 return false;
             }else{
-                document.getElementById('passwordMessage').textContent = "Password is valid!";
+                document.getElementById('form-feedback').textContent = "Password is valid!";
             }
 
             alert('Form submitted successfully!');
             return true;
 
             }catch(error){
-                document.getElementById('passwordMessage').textContent = "form not valid!";
+                document.getElementById('form-feedback').textContent = "form not valid!";
             }
             
 
