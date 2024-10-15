@@ -16,6 +16,26 @@ const form = document.addEventListener('DOMContentLoaded', ()=>{
             let isValid = true;
             let message = [];
 
+            // Check username length (6-15 characters)
+            if (userName.length < 6 || userName.length > 15) {
+                messages.push("Username must be between 6 and 15 characters.");
+                isValid = false;
+            }
+            if (password.length < 8) {
+                messages.push('Password must be at least 8 characters long.');
+            }
+            if (email.length === 0) {
+                messages.push('Email cannot be empty.');
+            }
+    
+            // Early exit if there are messages
+            if (messages.length > 0) {
+                feedbackDiv.style.display = 'block';
+                feedbackDiv.innerHTML = messages.join('<br>'); // Use '<br>' for line breaks
+                feedbackDiv.style.color = '#dc3545';
+                return false; // Stop further execution
+            }
+
             try{
                 //validate user name
             if (!isUserNameValid){
