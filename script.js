@@ -6,11 +6,15 @@ const form = document.addEventListener('DOMContentLoaded', ()=>{
             const userName = document.getElementById('username').value; //Obtain username from html
             const email = document.getElementById('email').value;//obtain email from html
             const password = document.getElementById('password').value;//obtain passcode from html
+            const feedbackDiv = document.getElementById('form-feedback');
 
             //variables for awaiting inputs
             const isUserNameValid = await ValidateUsername(userName.trim());
             const isEmailValid = await validateEmail(email.trim());
             const isPasswordValid = await validatePassword(password.trim());
+
+            let isValid = true;
+            let message = [];
 
             try{
                 //validate user name
@@ -38,8 +42,16 @@ const form = document.addEventListener('DOMContentLoaded', ()=>{
             }
             
 
-            alert('Form submitted successfully!');
-            return true;
+            feedbackDiv.style.display= 'block';
+
+
+            if (isValid){
+                feedbackDiv.textContent="Registration successful";
+                feedbackDiv.style.color = '#28a745';
+            }else{
+                feedbackDiv.innerHTML = message.join('br');
+                feedbackDiv.style.color = '#dc3545';
+            }
 
             async function ValidateUsername(userName){
 
