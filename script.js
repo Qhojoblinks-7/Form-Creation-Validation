@@ -19,14 +19,14 @@ const form = document.addEventListener('DOMContentLoaded', ()=>{
             try{
                 //validate user name
             if (!isUserNameValid){
-                message.push('Invalid username! Username must be 6-15 characters long, alphanumeric, and start with a letter.');
+                messages.push('Invalid username! Username must be 6-15 characters long, alphanumeric, and start with a letter.');
                 isValid = false;
             }
             
             
             //validate email
             if (!isEmailValid){
-                message.push('Invalid email address! Please enter a valid email format.');
+                messages.push('Invalid email address! Please enter a valid email format.');
                 isValid = false;
             }
 
@@ -52,7 +52,7 @@ const form = document.addEventListener('DOMContentLoaded', ()=>{
                 feedbackDiv.textContent="Registration successful";
                 feedbackDiv.style.color = '#28a745';
             }else{
-                feedbackDiv.innerHTML = message.join('<br>');
+                feedbackDiv.innerHTML = messages.join('<br>');
                 feedbackDiv.style.color = '#dc3545';
             }
 
