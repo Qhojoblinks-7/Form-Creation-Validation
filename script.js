@@ -15,28 +15,23 @@ const form = document.addEventListener('DOMContentLoaded', ()=>{
             try{
                 //validate user name
             if (!isUserNameValid){
-                alert('Invalid username! Username must be 6-15 characters long, alphanumeric, and start with a letter.');
+                message.push('Invalid username! Username must be 6-15 characters long, alphanumeric, and start with a letter.');
                 return false;
             }
             
             
             //validate email
             if (!isEmailValid){
-                alert('Invalid username! Username must be 6-15 characters long, alphanumeric, and start with a letter.');
+                message.push('Invalid email address! Please enter a valid email format.');
                 return false;
             }
 
             
             //validate password
             if (!isPasswordValid) {
-                document.getElementById('form-feedback').textContent = "Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.";
+                messages.push('Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.');
                 return false;
-            }else{
-                document.getElementById('form-feedback').textContent = "Password is valid!";
             }
-
-            alert('Form submitted successfully!');
-            return true;
 
             }catch(error){
                 document.getElementById('form-feedback').textContent = "form not valid!";
@@ -79,7 +74,7 @@ const form = document.addEventListener('DOMContentLoaded', ()=>{
 
             async function validatePassword(password){
                 try{
-                    const fetchEmail = await fetch('https://api.example.com/validate-password',{
+                    const fetchPassword = await fetch('https://api.example.com/validate-password',{
                         method: 'POST',
                         body: JSON.stringify({ password: password }),
                         headers: { 'Content-Type': 'application/json' }
