@@ -8,9 +8,9 @@ const form = document.addEventListener('DOMContentLoaded', ()=>{
             const password = document.getElementById('password').value;//obtain passcode from html
 
             //variables for awaiting inputs
-            const isUserNameValid = await ValidateUsername(userName);
-            const isEmailValid = await validateEmail(email);
-            const isPasswordValid = await validatePassword(password);
+            const isUserNameValid = await ValidateUsername(userName.trim());
+            const isEmailValid = await validateEmail(email.trim());
+            const isPasswordValid = await validatePassword(password.trim());
 
             try{
                 //validate user name
